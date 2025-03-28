@@ -32,7 +32,27 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 3px solid #1E3A8A;
 }
+.logo {
+    position: fixed;
+    top: 1vw;
+    left: 1vw;
+    width: 8vw;
+    height: auto;
+}
 
+/* Flexbox Container */
+.container {
+    max-width: 80vw;
+    margin: 5vw auto;
+    padding: 2vw;
+    background : rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2vw;
+    flex-direction: row;
+}
 /* Profile Section */
 .profile {
     display: flex;
