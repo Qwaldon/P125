@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homework 4 - Bootstrap Layout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .container-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .demo-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .feature-box {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            height: 100%;
+        }
+        .card {
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        #successAlert {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Success Alert (hidden by default) -->
+    <div id="successAlert" class="alert alert-success alert-dismissible fade show fixed-top m-3">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Success!</strong> Your action was completed.
+    </div>
+
+    <!-- Container 1: Jumbotron Header -->
+    <div class="container container-section mt-5">
+        <div class="jumbotron">
+            <h1>Welcome to My Bootstrap Website</h1>
+            <p class="lead">This homework demonstrates how to create a webpage using Bootstrap's grid system with stacked containers.</p>
+            <hr class="my-4">
+            <p>Each section below represents a different container with rows and columns.</p>
+            <button id="learnMoreBtn" class="btn btn-primary btn-lg">Learn more</button>
+        </div>
+    </div>
+
+    <!-- Container 2: Three Equal Columns -->
+    <div class="container container-section">
+        <h2 class="text-center mb-4">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>Web Design</h3>
+                    <p>Professional website design services tailored to your business needs. We create responsive, modern websites that work on all devices.</p>
+                    <button class="btn btn-outline-primary viewDetailsBtn" data-service="Web Design">View Details</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>SEO Optimization</h3>
+                    <p>Improve your search engine rankings with our comprehensive SEO services. We help you get found by your target audience.</p>
+                    <button class="btn btn-outline-primary viewDetailsBtn" data-service="SEO Optimization">View Details</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>Content Creation</h3>
+                    <p>Engaging content that tells your brand story and connects with your customers. Our writers create compelling copy that converts.</p>
+                    <button class="btn btn-outline-primary viewDetailsBtn" data-service="Content Creation">View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container 3: Two Unequal Columns -->
+    <div class="container container-section">
+        <h2 class="text-center mb-4">About Our Company</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="feature-box">
+                    <h3>Our Story</h3>
+                    <p>Founded in 2010, we started as a small web design studio with just two people. Today, we're a full-service digital agency with over 50 employees serving clients worldwide.</p>
+                    <p>Our mission is to help businesses of all sizes establish a strong online presence through beautiful design, smart technology, and effective marketing strategies.</p>
+                    <p>What sets us apart is our commitment to customer service and our focus on delivering measurable results for our clients.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>Quick Facts</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">Founded: 2010</li>
+                        <li class="list-group-item">Employees: 50+</li>
+                        <li class="list-group-item">Clients: 200+</li>
+                        <li class="list-group-item">Projects: 500+</li>
+                        <li class="list-group-item">Offices: 3 countries</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container 4: Nested Columns -->
+    <div class="container container-section">
+        <h2 class="text-center mb-4">Our Team</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="https://via.placeholder.com/150" class="img-fluid rounded-circle" alt="Team Member">
+                        </div>
+                        <div class="col-md-8">
+                            <h4>Sarah Johnson</h4>
+                            <h5>CEO & Founder</h5>
+                            <p>Sarah founded the company with a vision to create beautiful, functional websites that help businesses grow.</p>
+                            <button class="btn btn-info btn-sm contactTeamBtn" data-member="Sarah Johnson">Contact Sarah</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="https://via.placeholder.com/150" class="img-fluid rounded-circle" alt="Team Member">
+                        </div>
+                        <div class="col-md-8">
+                            <h4>Michael Chen</h4>
+                            <h5>Lead Developer</h5>
+                            <p>Michael oversees all technical development with 15 years of experience in web technologies.</p>
+                            <button class="btn btn-info btn-sm contactTeamBtn" data-member="Michael Chen">Contact Michael</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container 5: Mixed Column Widths -->
+    <div class="container container-section">
+        <h2 class="text-center mb-4">Recent Projects</h2>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://via.placeholder.com/300x200" alt="Project">
+                    <div class="card-body">
+                        <h5 class="card-title">E-commerce Site</h5>
+                        <p class="card-text">A complete online store with custom design and payment integration.</p>
+                        <button class="btn btn-primary projectBtn" data-project="E-commerce Site">View Project</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://via.placeholder.com/300x200" alt="Project">
+                    <div class="card-body">
+                        <h5 class="card-title">Corporate Website</h5>
+                        <p class="card-text">Modern design for a financial services company with secure client portal.</p>
+                        <button class="btn btn-primary projectBtn" data-project="Corporate Website">View Project</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://via.placeholder.com/300x200" alt="Project">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobile App</h5>
+                        <p class="card-text">iOS and Android application for a fitness tracking service.</p>
+                        <button class="btn btn-primary projectBtn" data-project="Mobile App">View Project</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://via.placeholder.com/300x200" alt="Project">
+                    <div class="card-body">
+                        <h5 class="card-title">Marketing Campaign</h5>
+                        <p class="card-text">Complete digital marketing strategy for a healthcare startup.</p>
+                        <button class="btn btn-primary projectBtn" data-project="Marketing Campaign">View Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container 6: Contact Form -->
+    <div class="container container-section">
+        <h2 class="text-center mb-4">Contact Us</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="3" placeholder="Your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h3>Our Office</h3>
+                    <p><strong>Address:</strong> 123 Main Street, Suite 400, San Francisco, CA 94105</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@example.com</p>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.235756717736!2d-122.4036646846821!3d37.7868829797579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807f069080a1%3A0x6e5c7a8a4e8e9b0f!2s123%20Main%20St%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>About This Homework</h5>
+                    <p>This webpage demonstrates Bootstrap's grid system with stacked containers, rows, and columns as required for Homework 4.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white navLink">Home</a></li>
+                        <li><a href="#" class="text-white navLink">Services</a></li>
+                        <li><a href="#" class="text-white navLink">About</a></li>
+                        <li><a href="#" class="text-white navLink">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Connect With Us</h5>
+                    <a href="#" class="text-white mr-2 socialLink"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white mr-2 socialLink"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white mr-2 socialLink"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-white socialLink"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Bootstrap Homework. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript for interactivity -->
+    <script>
+        $(document).ready(function() {
+            // Learn More button in jumbotron
+            $("#learnMoreBtn").click(function() {
+                alert("Thanks for your interest! This is a demo for Homework 4 showing Bootstrap functionality.");
+            });
+
+            // View Details buttons for services
+            $(".viewDetailsBtn").click(function() {
+                const service = $(this).data("service");
+                alert(`You clicked on ${service} details. This would normally show more information about this service.`);
+            });
+
+            // Contact Team buttons
+            $(".contactTeamBtn").click(function() {
+                const member = $(this).data("member");
+                alert(`This would open a contact form to message ${member}.`);
+            });
+
+            // Project buttons
+            $(".projectBtn").click(function() {
+                const project = $(this).data("project");
+                alert(`This would show more details about the "${project}" project.`);
+            });
+
+            // Navigation links
+            $(".navLink").click(function(e) {
+                e.preventDefault();
+                const target = $(this).text().toLowerCase();
+                alert(`This would navigate to the ${target} section.`);
+            });
+
+            // Social media links
+            $(".socialLink").click(function(e) {
+                e.preventDefault();
+                const platform = $(this).find("i").attr("class").split("-")[1];
+                alert(`This would link to our ${platform} page.`);
+            });
+
+            // Contact form submission
+            $("#contactForm").submit(function(e) {
+                e.preventDefault();
+                const name = $("#name").val();
+                alert(`Thank you ${name}! Your message has been submitted. (This is a demo - no actual submission occurs)`);
+                $("#contactForm")[0].reset();
+                
+                // Show success alert at top of page
+                $("#successAlert").fadeIn();
+                setTimeout(function() {
+                    $("#successAlert").fadeOut();
+                }, 3000);
+            });
+
+            // Add hover effect to cards
+            $(".card").hover(
+                function() {
+                    $(this).addClass("shadow");
+                },
+                function() {
+                    $(this).removeClass("shadow");
+                }
+            );
+        });
+    </script>
+</body>
+</html>
