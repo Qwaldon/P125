@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homework  6 - Bootstrap Layout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .container-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .demo-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .feature-box {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            height: 100%;
+        }
+        .card {
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        #successAlert {
+            display: none;
+        }
+        /* New styles for HW6 */
+        .activity-btn {
+            margin: 5px;
+            transition: all 0.3s ease;
+            min-width: 180px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .activity-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .monday-btn {
+            background-color: #ff7eb9;
+            border-color: #ff7eb9;
+        }
+        .monday-btn:hover {
+            background-color: #ff6ba9;
+            border-color: #ff6ba9;
+        }
+        .tuesday-btn {
+            background-color: #7afcff;
+            border-color: #7afcff;
+            color: #333;
+        }
+        .tuesday-btn:hover {
+            background-color: #65e6e9;
+            border-color: #65e6e9;
+            color: #333;
+        }
+        .wednesday-btn {
+            background-color: #feff9c;
+            border-color: #feff9c;
+            color: #333;
+        }
+        .wednesday-btn:hover {
+            background-color: #e6e78c;
+            border-color: #e6e78c;
+            color: #333;
+        }
+        .activities-container {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .hw6-form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body onload="initializePage()">
+    <!-- Success Alert (hidden by default) -->
+    <div id="successAlert" class="alert alert-success alert-dismissible fade show fixed-top m-3">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Success!</strong> Your action was completed.
+    </div>
+
+    <!-- Container 1: Jumbotron Header -->
+    <div class="container container-section mt-5">
+        <div class="jumbotron">
+            <h1>Welcome to Project 6 Using Bootstrap</h1>
+            <p class="lead">This homework demonstrates how to create a webpage using Bootstrap's grid system with stacked containers,buttons,and Form.
+                I choose to do a class registration form. Enjoy!!!
+            </p>
+            <hr class="my-4">
+            <p>Each section below represents a different container with rows and columns.</p>
+            <button id="learnMoreBtn" class="btn btn-primary btn-lg">Learn more</button>
+        </div>
+    </div>
+
+    <!-- NEW SECTION: Activities Buttons (HW6 Requirement) -->
+    <div class="container activities-container">
+        <h2 class="text-center mb-4">Weekly Activities</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <button id="mondayBtn" class="btn activity-btn monday-btn">Monday Activities</button>
+                <button id="tuesdayBtn" class="btn activity-btn tuesday-btn">Tuesday Activities</button>
+                <button id="wednesdayBtn" class="btn activity-btn wednesday-btn">Wednesday Activities</button>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div id="activitiesOutput" class="text-center p-3" style="min-height: 100px; background-color: rgba(255,255,255,0.8); border-radius: 8px;">
+                    <!-- Activity content will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW SECTION: Registration Form (HW6 Requirement) -->
+    <div class="container hw6-form">
+        <h2 class="text-center mb-4">Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="regName">Full Name</label>
+                <input type="text" class="form-control" id="regName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="regPassword">Password</label>
+                <input type="password" class="form-control" id="regPassword" placeholder="Create a password" required>
+                <small class="form-text text-muted">Must be at least 8 characters</small>
+            </div>
+            <div class="form-group">
+                <label for="regSelection">Select Your Course</label>
+                <select class="form-control" id="regSelection" required>
+                    <option value="">-- Select an option --</option>
+                    <option value="web">Web Development</option>
+                    <option value="data">Data Science</option>
+                    <option value="design">UX/UI Design</option>
+                    <option value="mobile">Mobile App Development</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register Now</button>
+        </form>
+    </div>
+
+    
+    
+    <div class="container container-section">
+        <h2 class="text-center mb-4">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>Web Design</h3>
+                    <p>Professional website design services tailored to your business needs. We create responsive, modern websites that work on all devices.</p>
+                    <button class="btn btn-outline-primary viewDetailsBtn" data-service="Web Design">View Details</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>SEO Optimization</h3>
+                    <p>Improve your search engine rankings with our comprehensive SEO services. We help you get found by your target audience.</p>
+                    <button class="btn btn-outline-primary viewDetailsBtn" data-service="SEO Optimization">View Details</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>Content Creation</h3>
+                    <p>Engaging content that tells your brand story and connects with your customers. Our writers create compelling copy that converts.</p>
+                    <button class="btn btn-outline-primary viewDetailsBtn" data-service="Content Creation">View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>About This Homework</h5>
+                    <p>This webpage demonstrates Bootstrap's grid system with stacked containers, rows, and columns as required for Homework 4 and 6.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white navLink">Home</a></li>
+                        <li><a href="#" class="text-white navLink">Services</a></li>
+                        <li><a href="#" class="text-white navLink">About</a></li>
+                        <li><a href="#" class="text-white navLink">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Connect With Us</h5>
+                    <a href="#" class="text-white mr-2 socialLink"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white mr-2 socialLink"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white mr-2 socialLink"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-white socialLink"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Bootstrap Homework. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Link to external JavaScript file  -->
+    <script src="p6.js"></script>
+</body>
+</html>
